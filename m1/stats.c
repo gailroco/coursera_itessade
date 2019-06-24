@@ -23,6 +23,10 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <stdbool.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -37,97 +41,179 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  char * aux = (unsigned char *) malloc(SIZE);
-  memcpy(aux, test, SIZE) ;
-  /* Statistics and Printing Functions Go Here */
-  print_array(aux, SIZE);
-  sort_array(aux, SIZE);
-  find_median(aux, SIZE);
-  find_mean(aux, SIZE);
-  find_maximum(aux, SIZE);
-  find_minimum(aux, SIZE);
-  print_statistics(aux, SIZE);
   
-  //printf
+  /* Create a copy of the original array to avoid messing with the original */
+  char * aux = (unsigned char *) malloc(SIZE);
+  memcpy(aux, test, SIZE);
+
+  /* Statistics and Printing Functions Go Here */
+  
+  /* Function: Print array */
+  printf("Test method: print_array\n");
+  print_array(aux, SIZE);
+
+  /* Function: Sort array */
+  char ORD = 'D';
+  printf("Test method: sort_array (%c)\n", ORD);
+  sort_array(aux, SIZE, ORD,'Y');
+
+  /* Function: Compute statistics */
+  printf("Test method: print_statistics\n");
+  print_statistics(aux, SIZE);
 }
 
 /* Add other Implementation File Code Here */
+
+/**
+ * @brief Method that prints an array
+ *
+ * @param <ptr> Pointer to the data array, 
+ * @param <n>   Array length
+ * 
+ * @return N/A
+*/
 void print_array(unsigned char * ptr, unsigned int n){
-  for(int index=0; index<n;index++)
+  for(int i = 0; i < n; i++)
   {
-    printf("%d ,",&ptr[index]);
+    printf("%d, ",ptr[i]);
+    if(i == n - 1)
+      printf("%d",ptr[i]);
+  }
+  printf("\n");
+}
+
+/**
+ * @brief Method that sorts and prints an array
+ *
+ * @param <ptr>   Pointer to the data array, 
+ * @param <n>     Array length
+ * @param <ORD>   Order ascending - 'A' or descending - else
+ * @param <PRINT> Print or not the ordered array
+ * 
+ * @return N/A
+*/
+void sort_array(unsigned char * ptr, unsigned int n, char ORD, char PRINT){
+  bubbleSort(ptr, n, ORD);
+  if(PRINT == 'Y')
+  {
+    print_array(ptr, n);
   }
 }
 
-void sort_array(unsigned char * ptr, unsigned int n){
-  quickSort(ptr, 0, n-1);
-  print_array(ptr, n);
-}
-
-unsigned char find_median(unsigned char * arr, unsigned int n){
+/**
+ * @brief Function that computes the median of the data array
+ *
+ * @param <ptr>   Pointer to the data array, 
+ * @param <n>     Array length
+ * 
+ * @return <result> Median statistic
+*/
+unsigned char find_median(unsigned char * ptr, unsigned int n){
   unsigned char result = 0;
+  sort_array(ptr, n, 'A', 'N');
+  unsigned char m = n / 2;
+  if(n % 2 == 0)
+  {
+    result = (ptr[(m - 1)] + ptr[(m + 1)])/2;
+  }else
+  {
+    result = ptr[(unsigned char)trunc(m) + 1];
+  }
   return result;
 }
 
-unsigned char find_mean(unsigned char * arr, unsigned int n){
-  unsigned char result = 0;
+/**
+ * @brief Function that computes the mean of the data array
+ *
+ * @param <ptr>   Pointer to the data array, 
+ * @param <n>     Array length
+ * 
+ * @return <result> Mean statistic
+*/
+unsigned char find_mean(unsigned char * ptr, unsigned int n){
+  long result = sum(ptr, n);
+  float res = result / n;
+  return (unsigned char)trunc(res);
+}
+
+/**
+ * @brief Function that sums the elements of the array
+ *
+ * @param <ptr>   Pointer to the data array, 
+ * @param <n>     Array length
+ * 
+ * @return <result> Sum
+*/
+long sum(unsigned char * ptr, unsigned int n){
+  long result = 0;
+  for(int i = 0; i < n; i++)
+  {
+    result = result + ptr[i];
+  }
   return result;
 }
 
-unsigned char find_maximum(unsigned char * arr, unsigned int n){
-  unsigned char result = 0;
-  return result;
+/**
+ * @brief Function that finds the maximum of the array
+ *
+ * @param <ptr>         Pointer to the data array, 
+ * @param <n>           Array length
+ * 
+ * @return <ptr[n - 1]> Get maximum
+*/
+unsigned char find_maximum(unsigned char * ptr, unsigned int n){
+  sort_array(ptr, n, 'A', 'N');
+  return ptr[n - 1];
 }
 
-unsigned char find_minimum(unsigned char * arr, unsigned int n){
-  unsigned char result = 0;
-  return result;
+/**
+ * @brief Function that finds the minimum of the array
+ *
+ * @param <ptr>         Pointer to the data array, 
+ * @param <n>           Array length
+ * 
+ * @return <ptr[n - 1]> Get minimum
+*/
+unsigned char find_minimum(unsigned char * ptr, unsigned int n){
+  sort_array(ptr, n, 'A', 'N');
+  return ptr[0];
 }
 
-void print_statistics(unsigned char * arr, unsigned int n){
-  unsigned char result = 0;
+/**
+ * @brief Method that computes and prints data statistics
+ *
+ * @param <ptr>   Pointer to the data array, 
+ * @param <n>     Array length
+ * 
+ * @return N/A
+*/
+void print_statistics(unsigned char * ptr, unsigned int n){
+  printf("Median = %d \n", find_median(ptr, n));
+  printf("Mean = %d \n", find_mean(ptr, n));
+  printf("Min = %d \n", find_minimum(ptr, n));
+  printf("Max = %d \n", find_maximum(ptr, n));
 }
 
-/* This function takes last element as pivot, places 
-   the pivot element at its correct position in sorted 
-    array, and places all smaller (smaller than pivot) 
-   to left of pivot and all greater elements to right 
-   of pivot */
-int partition (unsigned char arr[], int low, int high) 
-{ 
-    unsigned char pivot = arr[high];    // pivot 
-    int i = (low - 1);  // Index of smaller element 
-  
-    for (int j = low; j <= high- 1; j++) 
-    { 
-        // If current element is smaller than or 
-        // equal to pivot 
-        if (arr[j] <= pivot) 
-        { 
-            i++;    // increment index of smaller element 
-            swap(&arr[i], &arr[j]); 
-        } 
-    } 
-    swap(&arr[i + 1], &arr[high]); 
-    return (i + 1); 
-} 
-  
-/* The main function that implements QuickSort 
- arr[] --> Array to be sorted, 
-  low  --> Starting index, 
-  high  --> Ending index */
-void quickSort(unsigned char arr[], int low, int high) 
-{ 
-    if (low < high) 
-    { 
-        /* pi is partitioning index, arr[p] is now 
-           at right place */
-        int pi = partition(arr, low, high); 
-  
-        // Separately sort elements before 
-        // partition and after partition 
-        quickSort(arr, low, pi - 1); 
-        quickSort(arr, pi + 1, high); 
-    } 
-} 
-
+/**
+ * @brief Function that sorts an array in ascending or descending order
+ *
+ * @param <ptr>   Pointer to the data array, 
+ * @param <n>     Array length
+ * @param <ORD>   Order mode (ascending - 'A' or descending - else)
+ * 
+ * @return N/A
+*/
+void bubbleSort(unsigned char * ptr, int n, char ORD) 
+{
+    for(int k = 0; k < (n - 1); ++k){
+    for(int j = 0; j < (n - k - 1); ++j){
+      // Sort in ASC (>) & DSC order (<)
+      bool cond = (ORD ==  'A') ? (ptr[j] > ptr[j + 1]) : (ptr[j] < ptr[j + 1]);
+      if (cond){
+        int aux = ptr[j];
+        ptr[j] = ptr[j + 1];
+        ptr[j + 1] = aux;
+      }
+    }
+  }
+}
