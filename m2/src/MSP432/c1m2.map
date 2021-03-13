@@ -1,0 +1,571 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (atexit)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (exit)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (__libc_fini_array)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o) (_global_impure_ptr)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (__libc_init_array)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o (memset)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o) (__register_exitproc)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o) (__call_exitprocs)
+/usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+                              /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o) (_exit)
+
+Allocating common symbols
+Common symbol       size              file
+
+buffer              0xa               main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+MAIN_FLASH       0x0000000000000000 0x0000000000040000 xr
+INFO_FLASH       0x0000000000200000 0x0000000000004000 xr
+SRAM_CODE        0x0000000001000000 0x0000000000010000 xrw
+SRAM_DATA        0x0000000020000000 0x0000000000010000 rw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+LOAD main.o
+LOAD memory.o
+LOAD interrupts_msp432p401r_gcc.o
+LOAD startup_msp432p401r_gcc.o
+LOAD system_msp432p401r.o
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libc.a
+END GROUP
+START GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/libgcc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libc.a
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a
+END GROUP
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+                0x0000000000000000                PROVIDE (_intvecs_base_address, DEFINED (_intvecs_base_address)?_intvecs_base_address:0x0)
+
+.intvecs        0x0000000000000000      0x140
+ *(.intvecs)
+ .intvecs       0x0000000000000000      0x140 startup_msp432p401r_gcc.o
+                0x0000000000000000                interruptVectors
+                0x0000000000200000                PROVIDE (_mailbox_base_address, 0x200000)
+
+.flashMailbox
+ *(.flashMailbox)
+                0x0000000000201000                PROVIDE (_tlv_base_address, 0x201000)
+
+.tlvTable
+ *(.tlvTable)
+                0x0000000000202000                PROVIDE (_bsl_base_address, 0x202000)
+
+.bslArea
+ *(.bslArea)
+                0x0000000020000000                PROVIDE (_vtable_base_address, DEFINED (_vtable_base_address)?_vtable_base_address:0x20000000)
+
+.vtable
+ *(.vtable)
+
+.text           0x0000000000000140      0x8d0
+ CREATE_OBJECT_SYMBOLS
+ *(.text)
+ .text          0x0000000000000140        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+ .text          0x0000000000000140       0xa4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .text          0x00000000000001e4       0x68 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+                0x00000000000001e4                _mainCRTStartup
+                0x00000000000001e4                _start
+ .text          0x000000000000024c       0xb0 main.o
+                0x000000000000024c                main
+ .text          0x00000000000002fc       0xb0 memory.o
+                0x00000000000002fc                set_value
+                0x0000000000000320                clear_value
+                0x000000000000033c                get_value
+                0x000000000000035c                set_all
+                0x0000000000000390                clear_all
+ .text          0x00000000000003ac        0x0 interrupts_msp432p401r_gcc.o
+ .text          0x00000000000003ac        0x0 startup_msp432p401r_gcc.o
+ .text          0x00000000000003ac      0x36c system_msp432p401r.o
+                0x00000000000003ac                SystemCoreClockUpdate
+                0x000000000000069c                SystemInit
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+ .text          0x0000000000000718        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+ *(.text.*)
+ .text.atexit   0x0000000000000718        0xc /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+                0x0000000000000718                atexit
+ .text.exit     0x0000000000000724       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+                0x0000000000000724                exit
+ .text.__libc_fini_array
+                0x0000000000000744       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+                0x0000000000000744                __libc_fini_array
+ .text.__libc_init_array
+                0x0000000000000770       0x50 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+                0x0000000000000770                __libc_init_array
+ .text.memset   0x00000000000007c0       0x9c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+                0x00000000000007c0                memset
+ .text.__register_exitproc
+                0x000000000000085c       0xa4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+                0x000000000000085c                __register_exitproc
+ .text.startup.register_fini
+                0x0000000000000900       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x0000000000000914       0xd4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+                0x0000000000000914                __call_exitprocs
+ .text._exit    0x00000000000009e8        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+                0x00000000000009e8                _exit
+                0x00000000000009ec                . = ALIGN (0x4)
+ *(.ctors)
+                0x00000000000009ec                . = ALIGN (0x4)
+ *(.dtors)
+                0x00000000000009ec                . = ALIGN (0x4)
+                0x00000000000009ec                __init_array_start = .
+ *(.init_array*)
+ .init_array    0x00000000000009ec        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .init_array.00000
+                0x00000000000009f0        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+                0x00000000000009f4                __init_array_end = .
+ *(.init)
+ .init          0x00000000000009f4        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+                0x00000000000009f4                _init
+ .init          0x00000000000009f8        0x8 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+ *(.fini*)
+ .fini          0x0000000000000a00        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+                0x0000000000000a00                _fini
+ .fini_array    0x0000000000000a04        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .fini          0x0000000000000a08        0x8 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+
+.glue_7         0x0000000000000a10        0x0
+ .glue_7        0x0000000000000a10        0x0 linker stubs
+
+.glue_7t        0x0000000000000a10        0x0
+ .glue_7t       0x0000000000000a10        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000000a10        0x0
+ .vfp11_veneer  0x0000000000000a10        0x0 linker stubs
+
+.v4_bx          0x0000000000000a10        0x0
+ .v4_bx         0x0000000000000a10        0x0 linker stubs
+
+.iplt           0x0000000000000a10        0x0
+ .iplt          0x0000000000000a10        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+
+.text:Reset_Handler
+                0x0000000000000a10       0x6c
+ .text:Reset_Handler
+                0x0000000000000a10       0x6c interrupts_msp432p401r_gcc.o
+                0x0000000000000a10                Reset_Handler
+
+.text:NMI_Handler
+                0x0000000000000a7c       0x10
+ .text:NMI_Handler
+                0x0000000000000a7c       0x10 interrupts_msp432p401r_gcc.o
+                0x0000000000000a7c                NMI_Handler
+
+.text:HardFault_Handler
+                0x0000000000000a8c       0x10
+ .text:HardFault_Handler
+                0x0000000000000a8c       0x10 interrupts_msp432p401r_gcc.o
+                0x0000000000000a8c                HardFault_Handler
+
+.text:Default_Handler
+                0x0000000000000a9c       0x10
+ .text:Default_Handler
+                0x0000000000000a9c       0x10 interrupts_msp432p401r_gcc.o
+                0x0000000000000a9c                CS_IRQHandler
+                0x0000000000000a9c                DebugMon_Handler
+                0x0000000000000a9c                AES256_IRQHandler
+                0x0000000000000a9c                SysTick_Handler
+                0x0000000000000a9c                PendSV_Handler
+                0x0000000000000a9c                RTC_C_IRQHandler
+                0x0000000000000a9c                PORT1_IRQHandler
+                0x0000000000000a9c                FPU_IRQHandler
+                0x0000000000000a9c                PORT2_IRQHandler
+                0x0000000000000a9c                TA3_0_IRQHandler
+                0x0000000000000a9c                UsageFault_Handler
+                0x0000000000000a9c                DMA_INT3_IRQHandler
+                0x0000000000000a9c                TA2_0_IRQHandler
+                0x0000000000000a9c                DMA_INT1_IRQHandler
+                0x0000000000000a9c                WDT_A_IRQHandler
+                0x0000000000000a9c                TA2_N_IRQHandler
+                0x0000000000000a9c                TA1_0_IRQHandler
+                0x0000000000000a9c                PSS_IRQHandler
+                0x0000000000000a9c                DMA_INT2_IRQHandler
+                0x0000000000000a9c                EUSCIA3_IRQHandler
+                0x0000000000000a9c                DMA_INT0_IRQHandler
+                0x0000000000000a9c                PORT4_IRQHandler
+                0x0000000000000a9c                PORT5_IRQHandler
+                0x0000000000000a9c                EUSCIB0_IRQHandler
+                0x0000000000000a9c                Default_Handler
+                0x0000000000000a9c                T32_INTC_IRQHandler
+                0x0000000000000a9c                TA3_N_IRQHandler
+                0x0000000000000a9c                TA0_0_IRQHandler
+                0x0000000000000a9c                EUSCIA2_IRQHandler
+                0x0000000000000a9c                PORT6_IRQHandler
+                0x0000000000000a9c                PORT3_IRQHandler
+                0x0000000000000a9c                MemManage_Handler
+                0x0000000000000a9c                SVC_Handler
+                0x0000000000000a9c                TA1_N_IRQHandler
+                0x0000000000000a9c                EUSCIA1_IRQHandler
+                0x0000000000000a9c                COMP_E1_IRQHandler
+                0x0000000000000a9c                EUSCIB2_IRQHandler
+                0x0000000000000a9c                FLCTL_IRQHandler
+                0x0000000000000a9c                EUSCIB3_IRQHandler
+                0x0000000000000a9c                T32_INT1_IRQHandler
+                0x0000000000000a9c                DMA_ERR_IRQHandler
+                0x0000000000000a9c                ADC14_IRQHandler
+                0x0000000000000a9c                EUSCIA0_IRQHandler
+                0x0000000000000a9c                BusFault_Handler
+                0x0000000000000a9c                PCM_IRQHandler
+                0x0000000000000a9c                TA0_N_IRQHandler
+                0x0000000000000a9c                COMP_E0_IRQHandler
+                0x0000000000000a9c                EUSCIB1_IRQHandler
+                0x0000000000000a9c                T32_INT2_IRQHandler
+
+.rodata         0x0000000000000aac        0x8
+ *(.rodata)
+ *(.rodata.*)
+ .rodata.str1.4
+                0x0000000000000aac        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .rodata._global_impure_ptr
+                0x0000000000000ab0        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+                0x0000000000000ab0                _global_impure_ptr
+
+.eh_frame       0x0000000000000ab4        0x4
+ .eh_frame      0x0000000000000ab4        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .eh_frame      0x0000000000000ab4        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+
+.ARM.exidx      0x0000000000000ab8        0x8
+                0x0000000000000ab8                __exidx_start = .
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x0000000000000ab8        0x8 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+                0x0000000000000ac0                __exidx_end = .
+
+.ARM.extab      0x0000000000000ac0        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab     0x0000000000000ac0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+                0x0000000000000ac0                __etext = .
+
+.rel.dyn        0x0000000000000ac0        0x0
+ .rel.iplt      0x0000000000000ac0        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+
+.data           0x0000000020000000      0x434 load address 0x0000000000000ac0
+                0x0000000000000ac0                __data_load__ = LOADADDR (.data)
+                0x0000000020000000                __data_start__ = .
+ *(.data)
+ .data          0x0000000020000000        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+ .data          0x0000000020000000        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+                0x0000000020000000                __dso_handle
+ .data          0x0000000020000004        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .data          0x0000000020000004        0x0 main.o
+ .data          0x0000000020000004        0x0 memory.o
+ .data          0x0000000020000004        0x0 interrupts_msp432p401r_gcc.o
+ .data          0x0000000020000004        0x0 startup_msp432p401r_gcc.o
+ .data          0x0000000020000004        0x4 system_msp432p401r.o
+                0x0000000020000004                SystemCoreClock
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+ .data          0x0000000020000008        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+ *(.data*)
+ .data.impure_data
+                0x0000000020000008      0x428 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x0000000020000430        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+                0x0000000020000430                _impure_ptr
+                0x0000000020000434                . = ALIGN (0x4)
+                0x0000000020000434                __data_end__ = .
+
+.jcr            0x0000000020000434        0x4 load address 0x0000000000000ef4
+ .jcr           0x0000000020000434        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .jcr           0x0000000020000434        0x4 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+
+.tm_clone_table
+                0x0000000020000438        0x0 load address 0x0000000000000ef8
+ .tm_clone_table
+                0x0000000020000438        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .tm_clone_table
+                0x0000000020000438        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+
+.igot.plt       0x0000000020000438        0x0 load address 0x0000000000000ef8
+ .igot.plt      0x0000000020000438        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+
+.bss            0x0000000020000438       0x28
+                0x0000000020000438                __bss_start__ = .
+ *(.shbss)
+ *(.bss)
+ .bss           0x0000000020000438        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+ .bss           0x0000000020000438       0x1c /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .bss           0x0000000020000454        0x0 main.o
+ .bss           0x0000000020000454        0x0 memory.o
+ .bss           0x0000000020000454        0x0 interrupts_msp432p401r_gcc.o
+ .bss           0x0000000020000454        0x0 startup_msp432p401r_gcc.o
+ .bss           0x0000000020000454        0x0 system_msp432p401r.o
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+ .bss           0x0000000020000454        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+ *(.bss.*)
+ *(COMMON)
+ COMMON         0x0000000020000454        0xa main.o
+                0x0000000020000454                buffer
+                0x0000000020000460                . = ALIGN (0x4)
+ *fill*         0x000000002000045e        0x2 
+                0x0000000020000460                __bss_end__ = .
+
+.heap           0x0000000020000460        0x0
+                0x0000000020000460                __heap_start__ = .
+                0x0000000020000460                end = __heap_start__
+                0x0000000020000460                _end = end
+                0x0000000020000460                __end = end
+ *(.heap)
+                0x0000000020000460                __heap_end__ = .
+                0x0000000020000460                __HeapLimit = __heap_end__
+
+.stack          0x0000000020000460        0x0
+                0x0000000020000460                _stack = .
+                0x0000000020000460                __stack = .
+ *(.stack)
+OUTPUT(c1m2.out elf32-littlearm)
+
+.ARM.attributes
+                0x0000000000000000       0x30
+ .ARM.attributes
+                0x0000000000000000       0x22 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crti.o
+ .ARM.attributes
+                0x0000000000000022       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+ .ARM.attributes
+                0x0000000000000056       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .ARM.attributes
+                0x0000000000000076       0x39 main.o
+ .ARM.attributes
+                0x00000000000000af       0x39 memory.o
+ .ARM.attributes
+                0x00000000000000e8       0x39 interrupts_msp432p401r_gcc.o
+ .ARM.attributes
+                0x0000000000000121       0x39 startup_msp432p401r_gcc.o
+ .ARM.attributes
+                0x000000000000015a       0x39 system_msp432p401r.o
+ .ARM.attributes
+                0x0000000000000193       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x00000000000001c7       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .ARM.attributes
+                0x00000000000001fb       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .ARM.attributes
+                0x000000000000022f       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000000000000263       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .ARM.attributes
+                0x0000000000000297       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000000000002cb       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x00000000000002ff       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x0000000000000333       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+ .ARM.attributes
+                0x0000000000000367       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+ .ARM.attributes
+                0x000000000000039b       0x22 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtn.o
+
+.comment        0x0000000000000000       0x70
+ .comment       0x0000000000000000       0x38 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtbegin.o
+                                         0x39 (size before relaxing)
+ .comment       0x0000000000000038       0x39 main.o
+ .comment       0x0000000000000038       0x39 memory.o
+ .comment       0x0000000000000038       0x39 interrupts_msp432p401r_gcc.o
+ .comment       0x0000000000000038       0x39 startup_msp432p401r_gcc.o
+ .comment       0x0000000000000038       0x39 system_msp432p401r.o
+ .comment       0x0000000000000038       0x38 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+                                         0x39 (size before relaxing)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+ .comment       0x0000000000000070       0x39 /usr/lib/gcc/arm-none-eabi/4.9.3/armv7e-m/fpu/crtend.o
+
+.debug_line     0x0000000000000000      0xdc1
+ .debug_line    0x0000000000000000       0x7e /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .debug_line    0x000000000000007e       0xc5 main.o
+ .debug_line    0x0000000000000143       0x57 memory.o
+ .debug_line    0x000000000000019a       0xee interrupts_msp432p401r_gcc.o
+ .debug_line    0x0000000000000288       0x8f startup_msp432p401r_gcc.o
+ .debug_line    0x0000000000000317      0x149 system_msp432p401r.o
+ .debug_line    0x0000000000000460       0xc4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_line    0x0000000000000524      0x178 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_line    0x000000000000069c       0x9f /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_line    0x000000000000073b       0xf4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .debug_line    0x000000000000082f       0xb8 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_line    0x00000000000008e7      0x11c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_line    0x0000000000000a03      0x196 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_line    0x0000000000000b99      0x1c8 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .debug_line    0x0000000000000d61       0x60 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+
+.debug_info     0x0000000000000000     0x3a57
+ .debug_info    0x0000000000000000       0xb0 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .debug_info    0x00000000000000b0       0xf6 main.o
+ .debug_info    0x00000000000001a6      0x15c memory.o
+ .debug_info    0x0000000000000302      0x10e interrupts_msp432p401r_gcc.o
+ .debug_info    0x0000000000000410       0xae startup_msp432p401r_gcc.o
+ .debug_info    0x00000000000004be      0xcd7 system_msp432p401r.o
+ .debug_info    0x0000000000001195      0x10a /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_info    0x000000000000129f      0x8e4 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_info    0x0000000000001b83       0xef /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_info    0x0000000000001c72      0x894 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .debug_info    0x0000000000002506      0x105 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_info    0x000000000000260b      0x117 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_info    0x0000000000002722      0x934 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_info    0x0000000000003056      0x9a9 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .debug_info    0x00000000000039ff       0x58 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+
+.debug_abbrev   0x0000000000000000      0xea7
+ .debug_abbrev  0x0000000000000000       0x14 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .debug_abbrev  0x0000000000000014       0xac main.o
+ .debug_abbrev  0x00000000000000c0       0xbd memory.o
+ .debug_abbrev  0x000000000000017d       0x92 interrupts_msp432p401r_gcc.o
+ .debug_abbrev  0x000000000000020f       0x6d startup_msp432p401r_gcc.o
+ .debug_abbrev  0x000000000000027c      0x10e system_msp432p401r.o
+ .debug_abbrev  0x000000000000038a       0xb8 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_abbrev  0x0000000000000442      0x1e6 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_abbrev  0x0000000000000628       0xbd /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_abbrev  0x00000000000006e5      0x180 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000000865       0xba /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_abbrev  0x000000000000091f       0x9f /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_abbrev  0x00000000000009be      0x20f /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_abbrev  0x0000000000000bcd      0x285 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x0000000000000e52       0x55 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+
+.debug_aranges  0x0000000000000000      0x1f0
+ .debug_aranges
+                0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/crt0.o
+ .debug_aranges
+                0x0000000000000020       0x20 main.o
+ .debug_aranges
+                0x0000000000000040       0x20 memory.o
+ .debug_aranges
+                0x0000000000000060       0x38 interrupts_msp432p401r_gcc.o
+ .debug_aranges
+                0x0000000000000098       0x18 startup_msp432p401r_gcc.o
+ .debug_aranges
+                0x00000000000000b0       0x20 system_msp432p401r.o
+ .debug_aranges
+                0x00000000000000d0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_aranges
+                0x00000000000000f0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_aranges
+                0x0000000000000110       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_aranges
+                0x0000000000000130       0x18 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+ .debug_aranges
+                0x0000000000000148       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_aranges
+                0x0000000000000168       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_aranges
+                0x0000000000000188       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_aranges
+                0x00000000000001a8       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .debug_aranges
+                0x00000000000001d0       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+
+.debug_str      0x0000000000000000     0x1549
+ .debug_str     0x0000000000000000      0x133 main.o
+                                        0x17a (size before relaxing)
+ .debug_str     0x0000000000000133       0x41 memory.o
+                                        0x10e (size before relaxing)
+ .debug_str     0x0000000000000174       0xa1 interrupts_msp432p401r_gcc.o
+                                        0x1de (size before relaxing)
+ .debug_str     0x0000000000000215       0x2b startup_msp432p401r_gcc.o
+                                        0x17c (size before relaxing)
+ .debug_str     0x0000000000000240      0x8e0 system_msp432p401r.o
+                                        0xa7b (size before relaxing)
+ .debug_str     0x0000000000000b20      0x1af /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+                                        0x248 (size before relaxing)
+ .debug_str     0x0000000000000ccf      0x3f3 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+                                        0x5e5 (size before relaxing)
+ .debug_str     0x00000000000010c2       0xd2 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+                                        0x240 (size before relaxing)
+ .debug_str     0x0000000000001194       0xa5 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-impure.o)
+                                        0x5dc (size before relaxing)
+ .debug_str     0x0000000000001239       0x93 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+                                        0x26a (size before relaxing)
+ .debug_str     0x00000000000012cc       0xaf /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+                                        0x21f (size before relaxing)
+ .debug_str     0x000000000000137b       0x33 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+                                        0x624 (size before relaxing)
+ .debug_str     0x00000000000013ae       0x73 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+                                        0x63c (size before relaxing)
+ .debug_str     0x0000000000001421      0x128 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+                                        0x12e (size before relaxing)
+
+.debug_frame    0x0000000000000000      0x378
+ .debug_frame   0x0000000000000000       0x34 main.o
+ .debug_frame   0x0000000000000034       0xcc memory.o
+ .debug_frame   0x0000000000000100       0xa0 interrupts_msp432p401r_gcc.o
+ .debug_frame   0x00000000000001a0       0x58 system_msp432p401r.o
+ .debug_frame   0x00000000000001f8       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_frame   0x0000000000000218       0x28 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000240       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_frame   0x0000000000000274       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_frame   0x00000000000002a0       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_frame   0x00000000000002d4       0x34 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000000308       0x50 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000000000000358       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+
+.debug_ranges   0x0000000000000000       0xc8
+ .debug_ranges  0x0000000000000000       0x28 interrupts_msp432p401r_gcc.o
+ .debug_ranges  0x0000000000000028       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_ranges  0x0000000000000038       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_ranges  0x0000000000000048       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_ranges  0x0000000000000058       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_ranges  0x0000000000000068       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_ranges  0x0000000000000078       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_ranges  0x0000000000000088       0x30 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)
+ .debug_ranges  0x00000000000000b8       0x10 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libnosys.a(_exit.o)
+
+.debug_loc      0x0000000000000000      0x5df
+ .debug_loc     0x0000000000000000       0x2c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-atexit.o)
+ .debug_loc     0x000000000000002c       0x1e /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-exit.o)
+ .debug_loc     0x000000000000004a       0x5c /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-fini.o)
+ .debug_loc     0x00000000000000a6       0xae /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-init.o)
+ .debug_loc     0x0000000000000154      0x1ae /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-memset.o)
+ .debug_loc     0x0000000000000302      0x197 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__atexit.o)
+ .debug_loc     0x0000000000000499      0x146 /usr/lib/gcc/arm-none-eabi/4.9.3/../../../arm-none-eabi/lib/armv7e-m/fpu/libg.a(lib_a-__call_atexit.o)

@@ -9,114 +9,32 @@
  *
  *****************************************************************************/
 /**
- * @file <Week 1 Assignment> 
- * @brief <My solution to Week 1 assignment>
+ * @file <Add File Name> 
+ * @brief <Add Brief Description Here >
  *
- * <I am taking "Introduction to Embedded Systems Software and development environments"
- * course and this is my solution to "Peer-graded Assignment: Week 1 Application Assignment">
+ * <Add Extended Description Here>
  *
- * @author <Frida Rojas>
- * @date <Sunday, June 23th 2019>
+ * @author <Add FirsName LastName>
+ * @date <Add date >
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
+
+/* Add Your Declarations and Function Comments here */ 
+
+/**
+ * @brief <Add Brief Description of Function Here>
+ *
+ * <Add Extended Description Here>
+ *
+ * @param <Add InputName> <add description here>
+ * @param <Add InputName> <add description here>
+ * @param <Add InputName> <add description here>
+ * @param <Add InputName> <add description here>
+ *
+ * @return <Add Return Informaiton here>
+ */
+
+
 #endif /* __STATS_H__ */
-
-
-/* Functions: Array handling */
-/**
- * @brief Method that prints an array
- *
- * @param <ptr> Pointer to the data array, 
- * @param <n>   Array length
- * 
- * @return N/A
-*/
-void print_array(unsigned char * ptr, unsigned int n);
-
-/**
- * @brief Method that sorts and prints an array
- *
- * @param <ptr>   Pointer to the data array, 
- * @param <n>     Array length
- * @param <ORD>   Order ascending - 'A' or descending - else
- * @param <PRINT> Print or not the ordered array
- * 
- * @return N/A
-*/
-void sort_array(unsigned char * ptr, unsigned int n, char ORD, char PRINT);
-
-/* Functions: Compute statistics */
-/**
- * @brief Function that computes the median of the data array
- *
- * @param <ptr>   Pointer to the data array, 
- * @param <n>     Array length
- * 
- * @return <result> Median statistic
-*/
-unsigned char find_median(unsigned char * arr, unsigned int n);
-
-/**
- * @brief Function that computes the mean of the data array
- *
- * @param <ptr>   Pointer to the data array, 
- * @param <n>     Array length
- * 
- * @return <result> mean statistic
-*/
-unsigned char find_mean(unsigned char * arr, unsigned int n);
-
-/**
- * @brief Function that finds the maximum of the array
- *
- * @param <ptr>         Pointer to the data array, 
- * @param <n>           Array length
- * 
- * @return <ptr[n - 1]> Get maximum
-*/
-unsigned char find_maximum(unsigned char * arr, unsigned int n);
-
-/**
- * @brief Function that finds the minimum of the array
- *
- * @param <ptr>         Pointer to the data array, 
- * @param <n>           Array length
- * 
- * @return <ptr[n - 1]> Get minimum
-*/
-unsigned char find_minimum(unsigned char * arr, unsigned int n);
-
-/**
- * @brief Method that computes and prints data statistics
- *
- * @param <ptr>   Pointer to the data array, 
- * @param <n>     Array length
- * 
- * @return N/A
-*/
-void print_statistics(unsigned char * arr, unsigned int n);
-
-/* Functions: Utilities */
-
-/**
- * @brief Function that sums the elements of the array
- *
- * @param <ptr>   Pointer to the data array, 
- * @param <n>     Array length
- * 
- * @return <result> Sum
-*/
-long sum(unsigned char * ptr, unsigned int n);
-
-/**
- * @brief Function that sorts an array in ascending or descending order
- *
- * @param <ptr>   Pointer to the data array, 
- * @param <n>     Array length
- * @param <ORD>   Order mode (ascending - 'A' or descending - else)
- * 
- * @return N/A
-*/
-void bubbleSort(unsigned char * ptr, int n, char ORD);
