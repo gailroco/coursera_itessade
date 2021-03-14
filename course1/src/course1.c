@@ -71,6 +71,8 @@ int8_t test_data2() {
   value = my_atoi( ptr, digits, BASE_10);
   #ifdef VERBOSE
   PRINTF("  Initial Decimal number: %d\n", num);
+  print_array(ptr, 8);
+  //PRINTF("  DBG - Digits: %d\t [0]=%c\n", digits, *ptr);
   PRINTF("  Final Decimal number: %d\n", value);
   #endif
   free_words( (uint32_t*)ptr );
@@ -100,14 +102,17 @@ int8_t test_memmove1() {
   ptra = &set[0];
   ptrb = &set[16];
   
-  /* Initialize the set to test values */
+  // Initialize the set to test values 
   for( i = 0; i < MEM_SET_SIZE_B; i++)
   {
     set[i] = i;
   }
 
+  PRINTF("DBG: ptra> %d\n", *ptra);
+  PRINTF("DBG: ptrb> %d\n", *ptrb);
   print_array(set, MEM_SET_SIZE_B);
   my_memmove(ptra, ptrb, TEST_MEMMOVE_LENGTH);
+  PRINTF("DBG: New> ");
   print_array(set, MEM_SET_SIZE_B);
 
   for (i = 0; i < TEST_MEMMOVE_LENGTH; i++)
@@ -139,13 +144,16 @@ int8_t test_memmove2() {
   ptra = &set[0];
   ptrb = &set[8];
 
-  /* Initialize the set to test values */
+  // Initialize the set to test values
   for( i = 0; i < MEM_SET_SIZE_B; i++) {
     set[i] = i;
   }
 
+  PRINTF("DBG: ptra> %d\n", *ptra);
+  PRINTF("DBG: ptrb> %d\n", *ptrb);
   print_array(set, MEM_SET_SIZE_B);
   my_memmove(ptra, ptrb, TEST_MEMMOVE_LENGTH);
+  PRINTF("DBG: New> ");
   print_array(set, MEM_SET_SIZE_B);
 
   for (i = 0; i < TEST_MEMMOVE_LENGTH; i++)
@@ -177,14 +185,16 @@ int8_t test_memmove3() {
   ptra = &set[8];
   ptrb = &set[0];
 
-  /* Initialize the set to test values */
+  // Initialize the set to test values
   for( i = 0; i < MEM_SET_SIZE_B; i++)
   {
     set[i] = i;
   }
-
+  PRINTF("DBG: ptra> %d\n", *ptra);
+  PRINTF("DBG: ptrb> %d\n", *ptrb);
   print_array(set, MEM_SET_SIZE_B);
   my_memmove(ptra, ptrb, TEST_MEMMOVE_LENGTH);
+  PRINTF("DBG: New> ");
   print_array(set, MEM_SET_SIZE_B);
 
   for (i = 0; i < TEST_MEMMOVE_LENGTH; i++)
@@ -218,7 +228,7 @@ int8_t test_memcopy() {
   ptra = &set[0];
   ptrb = &set[16];
 
-  /* Initialize the set to test values */
+  // Initialize the set to test values 
   for( i = 0; i < MEM_SET_SIZE_B; i++) {
     set[i] = i;
   }
@@ -256,7 +266,7 @@ int8_t test_memset()
   ptra = &set[0];
   ptrb = &set[16];
 
-  /* Initialize the set to test values */
+  // Initialize the set to test values
   for( i = 0; i < MEM_SET_SIZE_B; i++) 
   {
     set[i] = i;
@@ -268,7 +278,7 @@ int8_t test_memset()
   my_memzero(ptrb, MEM_ZERO_LENGTH);
   print_array(set, MEM_SET_SIZE_B);
   
-  /* Validate Set & Zero Functionality */
+  // Validate Set & Zero Functionality 
   for (i = 0; i < MEM_ZERO_LENGTH; i++)
   {
     if (set[i] != 0xFF)
@@ -325,17 +335,18 @@ void course1(void)
 {
   uint8_t i;
   int8_t failed = 0;
+  
   int8_t results[TESTCOUNT];
 
-  results[0] = test_data1();
+  results[0] = test_data1(); 
   results[1] = test_data2();
   results[2] = test_memmove1();
   results[3] = test_memmove2();
   results[4] = test_memmove3();
-  results[5] = test_memcopy();
+  results[5] = test_memcopy(); 
   results[6] = test_memset();
   results[7] = test_reverse();
-
+  
   for ( i = 0; i < TESTCOUNT; i++) 
   {
     failed += results[i];
@@ -346,4 +357,5 @@ void course1(void)
   PRINTF("  PASSED: %d / %d\n", (TESTCOUNT - failed), TESTCOUNT);
   PRINTF("  FAILED: %d / %d\n", failed, TESTCOUNT);
   PRINTF("--------------------------------\n");
+  
 }

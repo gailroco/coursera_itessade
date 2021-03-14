@@ -23,20 +23,13 @@
 #------------------------------------------------------------------------------
 include sources.mk
 
-BASENAME = c1m2
-
-# Platform Overrides
-#PLATFORM = 
-
-# Compiler Flags and Defines
-#CC = 
-#LD = 
-#LDFLAGS = 
-#CFLAGS = 
-#CPPFLAGs = 
+# Global Project Definitions
+BASENAME = c1m4
+MYCUSTOMFLAG = COURSE1
+MYCUSTOMPRINT = VERBOSE
 
 # Architectures Specific Flags
-LINKER_FILE = ../msp432p401r.lds
+LINKER_FILE = msp432p401r.lds
 CPU = cortex-m4
 ARCH = thumb
 SPECS = nosys.specs
@@ -47,7 +40,7 @@ ARM_FPU = fpv4-sp-d16
 
 CFLAGS = -Wall -Werror -g -O0 -std=c99
 LDFLAGS = -Wl,-Map=$(BASENAME).map
-CPPFLAGS = -D$(PLATFORM)
+CPPFLAGS = -D$(PLATFORM) -D$(MYCUSTOMFLAG) -D$(MYCUSTOMPRINT)
 
 # Choose platform: HOST or MSP432
 ifeq ($(PLATFORM), HOST)
@@ -101,8 +94,9 @@ $(BASENAME).out: $(OBJS)
 $(BASENAME).asm: build
 	$(OBJDMP) -D $(BASENAME).o > $(BASENAME).asm
 
+MYSRC = src
 # Clean
 .PHONY: clean
 clean:
-	rm -f *.o *.out *.map *.asm *.i *.d
+	rm -rf *.o *.out *.map *.asm *.i *.d $(MYSRC)/*.o $(MYSRC)/*.out $(MYSRC)/*.map $(MYSRC)/*.asm $(MYSRC)/*.i $(MYSRC)/*.d
 

@@ -9,59 +9,23 @@
  *
  *****************************************************************************/
 /**
- * @file <Week 1 Assignment> 
- * @brief <My solution to Week 1 assignment>
+ * @file <Week 4 Assignment> 
+ * @brief <My solution to Week 4 assignment>
  *
  * <I am taking "Introduction to Embedded Systems Software and development environments"
- * course and this is my solution to "Peer-graded Assignment: Week 1 Application Assignment">
+ * course and this is my solution to "Peer-graded Assignment: Week 4 Application Assignment">
  *
  * @author <Frida Rojas>
- * @date <Sunday, June 23th 2019>
+ * @date <Mar 3rd 2021>
  *
  */
-
-
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include "stats.h"
-
-/* Size of the Data Set */
-#define SIZE (40)
-
-void main() {
-
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
-
-  /* Other Variable Declarations Go Here */
-  
-  /* Create a copy of the original array to avoid messing with the original */
-  char * aux = (unsigned char *) malloc(SIZE);
-  memcpy(aux, test, SIZE);
-
-  /* Statistics and Printing Functions Go Here */
-  
-  /* Function: Print array */
-  printf("Test method: print_array\n");
-  print_array(aux, SIZE);
-
-  /* Function: Sort array */
-  char ORD = 'D';
-  printf("Test method: sort_array (%c)\n", ORD);
-  sort_array(aux, SIZE, ORD,'Y');
-
-  /* Function: Compute statistics */
-  printf("Test method: print_statistics\n");
-  print_statistics(aux, SIZE);
-}
-
-/* Add other Implementation File Code Here */
+#include "platform.h"
 
 /**
  * @brief Method that prints an array
@@ -74,11 +38,11 @@ void main() {
 void print_array(unsigned char * ptr, unsigned int n){
   for(int i = 0; i < n; i++)
   {
-    printf("%d, ",ptr[i]);
+    PRINTF("%d, ",ptr[i]);
     if(i == n - 1)
-      printf("%d",ptr[i]);
+      PRINTF("%d",ptr[i]);
   }
-  printf("\n");
+  PRINTF("\n");
 }
 
 /**
@@ -189,10 +153,10 @@ unsigned char find_minimum(unsigned char * ptr, unsigned int n){
  * @return N/A
 */
 void print_statistics(unsigned char * ptr, unsigned int n){
-  printf("Median = %d \n", find_median(ptr, n));
-  printf("Mean = %d \n", find_mean(ptr, n));
-  printf("Min = %d \n", find_minimum(ptr, n));
-  printf("Max = %d \n", find_maximum(ptr, n));
+  PRINTF("Median = %d \n", find_median(ptr, n));
+  PRINTF("Mean = %d \n", find_mean(ptr, n));
+  PRINTF("Min = %d \n", find_minimum(ptr, n));
+  PRINTF("Max = %d \n", find_maximum(ptr, n));
 }
 
 /**

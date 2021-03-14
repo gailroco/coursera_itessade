@@ -9,16 +9,17 @@
  *
  *****************************************************************************/
 /**
- * @file <Week 1 Assignment> 
- * @brief <My solution to Week 1 assignment>
+ * @file <Week 4 Assignment> 
+ * @brief <My solution to Week 4 assignment>
  *
  * <I am taking "Introduction to Embedded Systems Software and development environments"
- * course and this is my solution to "Peer-graded Assignment: Week 1 Application Assignment">
+ * course and this is my solution to "Peer-graded Assignment: Week 4 Application Assignment">
  *
  * @author <Frida Rojas>
- * @date <Sunday, June 23th 2019>
+ * @date <Mar 14th 2021>
  *
  */
+
 #ifndef __STATS_H__
 #define __STATS_H__
 #endif /* __STATS_H__ */
